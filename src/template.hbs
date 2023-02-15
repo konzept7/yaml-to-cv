@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lebenslauf {{Name}}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+<body id="app">
+    <div class="container">
+        <div
+            class="flex flex-row justify-start gap-5 max-w-5xl mx-auto border border-opacity-30 rounded-2xl items-center mb-16">
+            <div class="overflow-visible rounded-2xl max-h-40">
+                <img src="{{file}}" class="rounded-full w-64 h-auto -ml-8 -mt-8" />
+            </div>
+            <div class="flex flex-col gap-3">
+
+                <div class="flex flex-row gap-3 items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cake" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M3 20h18v-8a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3v8z"></path>
+                        <path
+                            d="M3 14.803c.312 .135 .654 .204 1 .197a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1c.35 .007 .692 -.062 1 -.197">
+                        </path>
+                        <path d="M12 4l1.465 1.638a2 2 0 1 1 -3.015 .099l1.55 -1.737z"></path>
+                    </svg>
+                    {{Geburtstag}}
+                </div>
+                <div class="flex flex-row gap-3 items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 11m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                        <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z">
+                        </path>
+                    </svg>
+                    {{Geburtsort}}
+                </div>
+                <div class="flex flex-row gap-3 items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tinder" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M18.918 8.174c2.56 4.982 .501 11.656 -5.38 12.626c-7.702 1.687 -12.84 -7.716 -7.054 -13.229c.309 -.305 1.161 -1.095 1.516 -1.349c0 .528 .27 3.475 1 3.167c3 0 4 -4.222 3.587 -7.389c2.7 1.411 4.987 3.376 6.331 6.174z">
+                        </path>
+                    </svg>
+                    {{Familienstand}}
+                </div>
+            </div>
+        </div>
+        <h2 class="container mx-auto mt-8 mb-5 px-2 max-w-5xl flex flex-row gap-3 italic items-baseline  self-stretch 
+                  after:bg-gradient-to-r after:from-red-300 after:to-orange-600 font-extrabold
+                   after:w-full after:h-px after:content-['']">
+            Berufserfahrung
+        </h2>
+
+        <div class="container mx-auto max-w-5xl">
+            {{#each Berufserfahrung}}
+            <p class="text-slate-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}} {{#if
+                Ende}}bis
+                {{Ende}}{{/if}}</p>
+            {{!-- <div class="flex flex-row items-baseline justify-between"> --}}
+                <p class="font-bold text-xl">{{Position}}</p>
+                <p class="text-emerald-700 my-1">{{Firma}} &#8226; {{Ort}}</p>
+                {{!--
+            </div> --}}
+            <h4 class="my-3"></h4>
+            <ul class="list-disc list-outside ml-5">
+                {{#each Aufgaben}}
+                <li class="leading-6">
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+        <h2 class="container mx-auto mt-8 mb-5 px-2 max-w-5xl flex flex-row gap-3 italic items-baseline  self-stretch 
+                                  after:bg-gradient-to-r after:from-red-300 after:to-orange-600 font-extrabold
+                                   after:w-full after:h-px after:content-['']">
+            Ausbildung
+        </h2>
+
+        <div class="container mx-auto max-w-5xl">
+            {{#each Ausbildung}}
+            <p class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}} {{#if
+                Ende}}bis
+                {{Ende}}{{/if}}</p>
+            <div class="flex flex-row items-baseline justify-between">
+                <p class="font-bold text-xl">{{Ausbildung}}</p>
+                <p class="italic">{{#if Abschlussnote}}<span
+                        class="text-xs opacity-50 mr-2">Abschlussnote:</span>{{Abschlussnote}}{{else}}ohne
+                    Abschluss{{/if}}
+                </p>
+            </div>
+            <p class="text-emerald-700 my-1">{{Ausbildungsstätte}} &#8226; {{Ort}}</p>
+
+            <h4 class="my-3"></h4>
+            <ul class="list-disc list-outside ml-5">
+                {{#each Inhalte}}
+                <li class="leading-6">
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+</html>

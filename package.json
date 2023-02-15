@@ -1,0 +1,37 @@
+{
+  "name": "yaml-to-k7cv",
+  "version": "1.0.0",
+  "description": "Quick hack to convert given yaml files with cv data from our employees to printable CVs in order to simplify project applications",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konzept7/yaml-to-k7cv.git"
+  },
+  "keywords": [
+    "npm",
+    "yaml",
+    "cv",
+    "markdown",
+    "css"
+  ],
+  "author": "Frank Bielecke, K7-Konzept Karlsruhe GmbH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konzept7/yaml-to-k7cv/issues"
+  },
+  "homepage": "https://github.com/konzept7/yaml-to-k7cv#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "nodemon": "^2.0.20",
+    "tailwindcss": "^3.2.6",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
+  }
+}
