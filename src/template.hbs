@@ -14,108 +14,211 @@
 <link rel="stylesheet" href="./style.css">
 
 <body id="app">
-    <div class="container">
-        <div
-            class="flex flex-row justify-start gap-5 max-w-5xl mx-auto border border-opacity-30 rounded-2xl items-center mb-16">
-            <div class="overflow-visible rounded-2xl max-h-40">
-                <img src="{{file}}" class="rounded-full w-64 h-auto -ml-8 -mt-8" />
-            </div>
-            <div class="flex flex-col gap-3">
+    <div class="flex flex-col max-w-5xl mx-auto">
+        <div class="flex flex-row justify-start bg-zinc-100 gap-1 px-1 print:mx-1 max-h-52 
+             border border-opacity-30 rounded-2xl items-center my-16 print:my-3 drop-shadow-xl">
 
-                <div class="flex flex-row gap-3 items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cake" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M3 20h18v-8a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3v8z"></path>
-                        <path
-                            d="M3 14.803c.312 .135 .654 .204 1 .197a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1c.35 .007 .692 -.062 1 -.197">
-                        </path>
-                        <path d="M12 4l1.465 1.638a2 2 0 1 1 -3.015 .099l1.55 -1.737z"></path>
-                    </svg>
-                    {{Geburtstag}}
+            <div class="overflow-hidden  rounded-2xl max-h-52 print:h-44">
+                <img src="{{file}}"
+                    class="rounded-full ring-4 ring-offset-2 ring-emerald-700 w-96 print:w-80 -ml-12 print:-ml-9 -mt-5" />
+
+            </div>
+            <div class="flex flex-col gap-4 text-sm w-full print:gap-2">
+                <h2>{{Name}}</h2>
+                <div>
+
+                    <div class="font-bold text-2xl">{{Beruf}}</div>
+                    <div class="text-zinc-700">geboren am {{Geburtstag}} in {{Geburtsort}}</div>
+
                 </div>
-                <div class="flex flex-row gap-3 items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M12 11m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                        <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z">
-                        </path>
-                    </svg>
-                    {{Geburtsort}}
+
+                <div class="flex flex-row mt-4 items-center justify-start gap-5 mr-8 stroke-[1.5] stroke-zinc-700 fill-none
+                     text-zinc-600  opacity-75">
+                    <div class="flex flex-row gap-1 justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-at" width="16"
+                            height="16" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+                        </svg>
+                        <a href="mailto:{{Kontakt.Email}}" target="_blank" rel="noopener noreferrer">
+                            {{Kontakt.Email}}
+                        </a>
+                    </div>
+                    <div class="flex flex-row gap-1 justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call"
+                            width="16" height="16" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                            <path d="M15 7a2 2 0 0 1 2 2" />
+                            <path d="M15 3a6 6 0 0 1 6 6" />
+                        </svg>
+                        <a href="tel:{{Kontakt.Telefon}}" target="_blank" rel="noopener noreferrer">
+                            {{Kontakt.Telefon}}
+                        </a>
+                    </div>
+                    <div class="flex flex-row gap-1 justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
+                            width="16" height="16" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <line x1="8" y1="11" x2="8" y2="16" />
+                            <line x1="8" y1="8" x2="8" y2="8.01" />
+                            <line x1="12" y1="16" x2="12" y2="11" />
+                            <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+                        </svg>
+                        <a href="{{Kontakt.LinkedIn}}" target="_blank" rel="noopener noreferrer">
+                            LinkedIn</a>
+                    </div>
+                    <div class="flex flex-row gap-1 justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="16"
+                            height="16" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+                            <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+                        </svg>
+                        <a href="{{Kontakt.Website}}" target="_blank" rel="noopener noreferrer">
+                            {{Kontakt.Website}}</a>
+                    </div>
                 </div>
-                <div class="flex flex-row gap-3 items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tinder" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path
-                            d="M18.918 8.174c2.56 4.982 .501 11.656 -5.38 12.626c-7.702 1.687 -12.84 -7.716 -7.054 -13.229c.309 -.305 1.161 -1.095 1.516 -1.349c0 .528 .27 3.475 1 3.167c3 0 4 -4.222 3.587 -7.389c2.7 1.411 4.987 3.376 6.331 6.174z">
-                        </path>
-                    </svg>
-                    {{Familienstand}}
-                </div>
+
+
+
+
             </div>
         </div>
-        <h2 class="container mx-auto mt-8 mb-5 px-2 max-w-5xl flex flex-row gap-3 italic items-baseline  self-stretch 
-                  after:bg-gradient-to-r after:from-red-300 after:to-orange-600 font-extrabold
-                   after:w-full after:h-px after:content-['']">
+        <h3 class="container whitespace-nowrap mx-auto mt-8 mb-5 max-w-5xl flex flex-row gap-3 items-baseline self-stretch 
+    after:bg-gradient-to-r after:from-lime-500 after:to-emerald-800 font-extrabold after:w-full after:h-px after:content-['']
+    print:mb-0">
             Berufserfahrung
-        </h2>
+        </h3>
 
         <div class="container mx-auto max-w-5xl">
             {{#each Berufserfahrung}}
-            <p class="text-slate-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}} {{#if
-                Ende}}bis
-                {{Ende}}{{/if}}</p>
-            {{!-- <div class="flex flex-row items-baseline justify-between"> --}}
-                <p class="font-bold text-xl">{{Position}}</p>
-                <p class="text-emerald-700 my-1">{{Firma}} &#8226; {{Ort}}</p>
-                {{!--
-            </div> --}}
-            <h4 class="my-3"></h4>
-            <ul class="list-disc list-outside ml-5">
-                {{#each Aufgaben}}
-                <li class="leading-6">
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
+            <div class="break-inside-avoid">
+                <div class="text-zinc-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}}
+                    {{#if
+                    Ende}}bis
+                    {{Ende}}{{/if}}</div>
+                <div class="font-bold text-lg">{{Position}}</div>
+                <div class="text-emerald-700 mb-1">{{Firma}} &#8226; {{Ort}}</div>
+                <h4 class="my-3"></h4>
+                <ul class="list-disc list-outside ml-5">
+                    {{#each Aufgaben}}
+                    <li class="leading-6">
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
         </div>
-        <h2 class="container mx-auto mt-8 mb-5 px-2 max-w-5xl flex flex-row gap-3 italic items-baseline  self-stretch 
-                                  after:bg-gradient-to-r after:from-red-300 after:to-orange-600 font-extrabold
-                                   after:w-full after:h-px after:content-['']">
+        <h3 class="container whitespace-nowrap mx-auto mt-8 mb-5 max-w-5xl flex flex-row gap-3 items-baseline self-stretch 
+            after:bg-gradient-to-r after:from-lime-500 after:to-emerald-800 font-extrabold after:w-full after:h-px after:content-['']
+            print:mb-0 print:mt-10">
             Ausbildung
-        </h2>
+        </h3>
 
         <div class="container mx-auto max-w-5xl">
             {{#each Ausbildung}}
-            <p class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}} {{#if
-                Ende}}bis
-                {{Ende}}{{/if}}</p>
-            <div class="flex flex-row items-baseline justify-between">
-                <p class="font-bold text-xl">{{Ausbildung}}</p>
-                <p class="italic">{{#if Abschlussnote}}<span
-                        class="text-xs opacity-50 mr-2">Abschlussnote:</span>{{Abschlussnote}}{{else}}ohne
-                    Abschluss{{/if}}
-                </p>
-            </div>
-            <p class="text-emerald-700 my-1">{{Ausbildungsstätte}} &#8226; {{Ort}}</p>
+            <div class="break-inside-avoid">
+                <div class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless
+                    Ende}}seit {{/unless}}{{Start}} {{#if
+                    Ende}}bis
+                    {{Ende}}{{/if}}</div>
+                <div class="flex flex-row items-baseline justify-between">
+                    <div class="font-bold text-lg">{{Ausbildung}}</div>
+                    <div class="italic">{{#if Abschlussnote}}<span
+                            class="text-xs opacity-50 mr-2">Abschlussnote:</span>{{Abschlussnote}}{{else}}ohne
+                        Abschluss{{/if}}
+                    </div>
+                </div>
+                <div class="text-emerald-700 mb-1">{{Ausbildungsstätte}} &#8226; {{Ort}}</div>
 
-            <h4 class="my-3"></h4>
-            <ul class="list-disc list-outside ml-5">
-                {{#each Inhalte}}
-                <li class="leading-6">
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
+                <h4 class="my-3"></h4>
+                <ul class="list-disc list-outside ml-5">
+                    {{#each Inhalte}}
+                    <li class="leading-6">
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
         </div>
-    </div>
+
+        <h3 class="container whitespace-nowrap mx-auto mt-8 mb-5 max-w-5xl flex flex-row gap-3 items-baseline self-stretch 
+            after:bg-gradient-to-r after:from-lime-500 after:to-emerald-800 font-extrabold after:w-full after:h-px after:content-['']
+            print:mb-0">
+            Kenntnisse &amp; Fähigkeiten
+        </h3>
+        <div class="container mx-auto max-w-5xl flex flex-col gap-1 stroke-[1.5] stroke-zinc-500 text-sm">
+            {{#each Kenntnisse}}
+            <div class="font-bold text-lg">{{@key}}</div>
+            <div class="grid mb-5 grid-cols-4 gap-1 items-center break-inside-avoid">
+                {{#each this}}
+                <div class="grid grid-cols-2 justify-start gap-1 items-center">
+                    <div>{{@key}}</div>
+                    <div class="flex flex-row gap-0">
+                        {{#repeat this}}
+                        <div class="fill-zinc-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle"
+                                width="16" height="16" viewBox="0 0 24 24" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+                        {{/repeat}}
+                        {{#repeat (subtract 5 this)}}
+                        <div class="fill-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle"
+                                width="16" height="16" viewBox="0 0 24 24" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+                        {{/repeat}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+        <h3 class="container whitespace-nowrap mx-auto mt-8 mb-5 max-w-5xl flex flex-row gap-3 items-baseline self-stretch 
+            after:bg-gradient-to-r after:from-lime-500 after:to-emerald-800 font-extrabold after:w-full after:h-px after:content-['']
+            print:mb-0">
+            Projekte
+        </h3>
+        <div class="container mx-auto max-w-5xl">
+            {{#each Projekte}}
+            <div class="break-inside-avoid">
+                <div class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless
+                    Ende}}seit {{/unless}}{{Start}} {{#if
+                    Ende}}bis
+                    {{Ende}}{{/if}}</div>
+                <div class="font-bold text-lg">{{Name}}</div>
+                <div class="text-emerald-700 mb-1">{{Kunde}}</div>
+                <div class="flex flex-row gap-1 flex-wrap">
+                    {{#each Kenntnisse}}
+                    <div class="whitespace-nowrap inline-flex rounded-md font-semibold text-white bg-emerald-700 
+                                        bg-opacity-70
+                                        outline outline-1 py-1 px-2 text-xs">
+                        {{this}}
+                    </div>
+                    {{/each}}
+                </div>
+                <div>
+                    {{markdown Beschreibung}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{!-- <div class="w-full pt-1 border-t print:opacity-70 hidden print:inline-block print:fixed print:bottom-0">
+            Lebenslauf {{Name}}
+        </div> --}}
 </body>
 
 </html>
