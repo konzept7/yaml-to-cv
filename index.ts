@@ -1,5 +1,5 @@
 import { parse } from 'yaml'
-import { readFileSync, readdirSync, writeFileSync, copyFileSync } from 'fs'
+import { readFileSync, readdirSync, writeFileSync, copyFileSync, existsSync } from 'fs'
 import Handlebars from 'handlebars';
 import marked from 'marked';
 
@@ -19,11 +19,20 @@ files.forEach(file => {
     return
   }
 
+  // make sure we only process yaml files
+  if (!file.endsWith('.yaml')) {
+    return
+  }
+
   const fileContents = readFileSync(`./data/${file}`, 'utf8')
   const yaml = parse(fileContents, {})
 
-  Handlebars.registerHelper('repeat', function (times: number, options) {
+    Handlebars.registerHelper('repeat', function (times: number, options) {
+      // handlebars safe string to prevent html escaping
     return new Handlebars.SafeString(options.fn(this).repeat(times))
+  })
+  Handlebars.registerHelper('markdown', function (text: string) {
+    return new Handlebars.SafeString(marked.parse(text))
   })
   Handlebars.registerHelper('add', function (a: number, b: number) {
     return a + b
@@ -32,10 +41,8 @@ files.forEach(file => {
     return a - b
   })
 
-  Handlebars.registerHelper('markdown', function (text: string) {
-    return new Handlebars.SafeString(marked.parse(text))
-  })
-  const html = template({ ...yaml, file: file.replace('.yaml', '.jpg') })
+  const hasPhoto = existsSync(`./data/${file.replace('.yaml', '.jpg')}`)
+  const html = template({ ...yaml, file: hasPhoto ? file.replace('.yaml', '.jpg') : null })
 
   writeFileSync(`./output/${file.replace('.yaml', '.html')}`, html)
 })

@@ -19,10 +19,18 @@ files.forEach(file => {
         (0, fs_1.copyFileSync)(`./data/${file}`, `./output/${file}`);
         return;
     }
+    // make sure we only process yaml files
+    if (!file.endsWith('.yaml')) {
+        return;
+    }
     const fileContents = (0, fs_1.readFileSync)(`./data/${file}`, 'utf8');
     const yaml = (0, yaml_1.parse)(fileContents, {});
     handlebars_1.default.registerHelper('repeat', function (times, options) {
+        // handlebars safe string to prevent html escaping
         return new handlebars_1.default.SafeString(options.fn(this).repeat(times));
+    });
+    handlebars_1.default.registerHelper('markdown', function (text) {
+        return new handlebars_1.default.SafeString(marked_1.default.parse(text));
     });
     handlebars_1.default.registerHelper('add', function (a, b) {
         return a + b;
@@ -30,10 +38,8 @@ files.forEach(file => {
     handlebars_1.default.registerHelper('subtract', function (a, b) {
         return a - b;
     });
-    handlebars_1.default.registerHelper('markdown', function (text) {
-        return new handlebars_1.default.SafeString(marked_1.default.parse(text));
-    });
-    const html = template(Object.assign(Object.assign({}, yaml), { file: file.replace('.yaml', '.jpg') }));
+    const hasPhoto = (0, fs_1.existsSync)(`./data/${file.replace('.yaml', '.jpg')}`);
+    const html = template(Object.assign(Object.assign({}, yaml), { file: hasPhoto ? file.replace('.yaml', '.jpg') : null }));
     (0, fs_1.writeFileSync)(`./output/${file.replace('.yaml', '.html')}`, html);
 });
 //# sourceMappingURL=index.js.map
