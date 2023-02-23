@@ -103,7 +103,7 @@
         <div class="container mx-auto max-w-5xl">
             {{#each Berufserfahrung}}
             <div class="break-inside-avoid">
-                <div class="text-zinc-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}}
+                <div class="text-zinc-700 opacity-75 mb-1 mt-8 ml-1">| {{#unless Ende}}seit {{/unless}}{{Start}}
                     {{#if
                     Ende}}bis
                     {{Ende}}{{/if}}</div>
@@ -128,7 +128,7 @@
         <div class="container mx-auto max-w-5xl">
             {{#each Ausbildung}}
             <div class="break-inside-avoid">
-                <div class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless
+                <div class="text-neutral-700 opacity-75 mb-1 mt-8 ml-1">| {{#unless
                     Ende}}seit {{/unless}}{{Start}} {{#if
                     Ende}}bis
                     {{Ende}}{{/if}}</div>
@@ -208,13 +208,12 @@
             Projekte
         </h3>
         <div class="text-sm text-zinc-700 opacity-80 italic">
-            Hier handelt es sich um eine Auswahl meiner Projekte. Die meisten Projekte sind nicht öffentlich zugänglich, da sie für
-            Kunden entwickelt wurden.
+            Um es kurz zu halten, handelt es sich hier lediglich um eine Auswahl meiner Projekte. Gerne stelle ich Ihnen eine Gesamtliste meiner Projekte zur Verfügung.
         </div>
         <div class="container mx-auto max-w-5xl">
             {{#each Projekte}}
             <div class="break-inside-avoid">
-                <div class="text-neutral-700 opacity-60 mb-1 mt-8 ml-1">| {{#unless
+                <div class="text-neutral-700 opacity-75 mb-1 mt-8 ml-1">| {{#unless
                     Ende}}seit {{/unless}}{{Start}} {{#if
                     Ende}}bis
                     {{Ende}}{{/if}}</div>
@@ -230,8 +229,14 @@
                     </div>
                     {{/each}}
                 </div>
-                <div>
+                <div class="inline-flex">
+                    <div>
+                        
                     {{markdown Beschreibung}}
+                    </div>
+                    {{#if Bild}}
+                    <img src="{{Bild}}" class="rounded-2xl ml-3 mt-3 max-w-xs max-h-80 inline float-right" alt="Bild zu {{Name}}" />
+                    {{/if}}
                 </div>
             </div>
             {{/each}}
