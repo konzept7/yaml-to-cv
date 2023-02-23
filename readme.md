@@ -23,6 +23,6 @@ Both files should have the same prefix!
 
 Execute these commands in separate terminals from workspace root:
 - `npx tailwindcss -i ./src/template.css -o ./output/style.css --watch` (Tailwind CSS directives)
-- `tsc --watch` (Recompile index.js)
 - `nodemon dist/index.js` (monitor changes in template files and execute recompilation of template file)
-- `cd output; http-server`
+
+Then, open the .html in in the output directory and start a live server with this extension: ritwickdey.LiveServer (added to workspace recommendations).
