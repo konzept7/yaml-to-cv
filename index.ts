@@ -57,6 +57,13 @@ files.forEach((file) => {
       });
     }
   );
+  Handlebars.registerHelper('calculateAge', function(birthday) {
+    const bd = new Date(birthday);
+    const diff = new Date().getTime() - bd.getTime();
+    const millisPerYear = 1000 * 60 * 60 * 24 * 365.25; // leap year
+    const years = Math.floor(diff / millisPerYear);
+    return years;
+  });
   const photoLocation = file
     .replace(".en.yaml", ".jpg")
     .replace(".yaml", ".jpg");
