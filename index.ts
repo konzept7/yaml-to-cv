@@ -28,7 +28,7 @@ files.forEach((file) => {
   if (!file.endsWith(".yaml")) {
     return;
   }
-  const isEnglish = file.endsWith("en.yaml");
+  const isEnglish = file.endsWith(".en.yaml");
 
   const fileContents = readFileSync(`./data/${file}`, "utf8");
   const yaml = parse(fileContents, {});
