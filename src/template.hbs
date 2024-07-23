@@ -135,8 +135,7 @@
                 <div class="flex flex-row items-baseline justify-between">
                     <div class="font-bold text-lg">{{Ausbildung}}</div>
                     <div class="italic">{{#if Abschlussnote}}<span
-                            class="text-xs opacity-50 mr-2">Abschlussnote:</span>{{Abschlussnote}}{{else}}ohne
-                        Abschluss{{/if}}
+                            class="text-xs opacity-50 mr-2">Abschlussnote:</span>{{Abschlussnote}}{{else}}{{/if}}
                     </div>
                 </div>
                 <div class="text-sky-700 mb-1">{{Ausbildungsstätte}} &#8226; {{Ort}}</div>
@@ -242,7 +241,7 @@
             {{/each}}
         </div>
         </div>
-        <div class="w-full pt-3 border-t border-zinc-900 border-opacity-70 print:opacity-70 hidden print:flex print:flex-row print:fixed print:bottom-0
+        <div class="w-full pt-3 print:border-0 border-zinc-900 border-opacity-70 print:opacity-70 hidden print:flex print:flex-row print:fixed print:bottom-0 
          justify-between">
             <div class="flex flex-col" style="font-size: 7pt;">
             <div class="text-sky-800">{{Name}}</div>
