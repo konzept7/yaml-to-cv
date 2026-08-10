@@ -28,7 +28,7 @@ files.forEach((file) => {
   if (!file.endsWith(".yaml")) {
     return;
   }
-  const isEnglish = file.endsWith("en.yaml");
+  const isEnglish = file.endsWith(".en.yaml");
 
   const fileContents = readFileSync(`./data/${file}`, "utf8");
   const yaml = parse(fileContents, {});
@@ -57,6 +57,13 @@ files.forEach((file) => {
       });
     }
   );
+  Handlebars.registerHelper('calculateAge', function(birthday) {
+    const bd = new Date(birthday);
+    const diff = new Date().getTime() - bd.getTime();
+    const millisPerYear = 1000 * 60 * 60 * 24 * 365.25; // leap year
+    const years = Math.floor(diff / millisPerYear);
+    return years;
+  });
   const photoLocation = file
     .replace(".en.yaml", ".jpg")
     .replace(".yaml", ".jpg");
